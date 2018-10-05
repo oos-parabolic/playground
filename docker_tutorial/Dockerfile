@@ -1,3 +1,8 @@
-FROM python:3
-ADD my_script.py /
-CMD [ "python", "./my_script.py" ]
+
+FROM python:2.7
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirments.txt
+ENTRYPOINT ["python"]
+EXPOSE 8888
+CMD ["my_script.py"]
